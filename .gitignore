@@ -5,3 +5,6 @@
 # Folder ignores
 .vscode
 .idea
+
+# File ignores
+*.import
