@@ -1,6 +1,6 @@
 # 30 Days of Game Development Challenge
 
-- Create a game within 30 days of October 2024 using Godot and _some language_ (could be C, C++, or Python).
+- Create a game within 30 days of October 2024 using Godot and GDScript.
 - Main goal: learn Godot and have fun along the way!
 
 ## Idea
@@ -16,33 +16,33 @@
 
 ## Progress
 
-- [Day 1](./devlog.md/#day-1) [x]: Getting to know Godot and how Object-Oriented Programming works in Godot and GDScript.
-- Day 2 []:
-- Day 3 []:
-- Day 4 []:
-- Day 5 []:
-- Day 6 []:
-- Day 7 []:
-- Day 8 []:
-- Day 9 []:
-- Day 10 []:
-- Day 11 []:
-- Day 12 []:
-- Day 13 []:
-- Day 14 []:
-- Day 15 []:
-- Day 16 []:
-- Day 17 []:
-- Day 18 []:
-- Day 19 []:
-- Day 20 []:
-- Day 21 []:
-- Day 22 []:
-- Day 23 []:
-- Day 24 []:
-- Day 25 []:
-- Day 26 []:
-- Day 27 []:
-- Day 28 []:
-- Day 29 []:
-- Day 30 []:
+- [x] [Day 1](./devlog.md/#day-1): Getting to know Godot and how Object-Oriented Programming works in Godot and GDScript.
+- [] Day 2:
+- [] Day 3:
+- [] Day 4:
+- [] Day 5:
+- [] Day 6:
+- [] Day 7:
+- [] Day 8:
+- [] Day 9:
+- [] Day 10:
+- [] Day 11:
+- [] Day 12:
+- [] Day 13:
+- [] Day 14:
+- [] Day 15:
+- [] Day 16:
+- [] Day 17:
+- [] Day 18:
+- [] Day 19:
+- [] Day 20:
+- [] Day 21:
+- [] Day 22:
+- [] Day 23:
+- [] Day 24:
+- [] Day 25:
+- [] Day 26:
+- [] Day 27:
+- [] Day 28:
+- [] Day 29:
+- [] Day 30:
