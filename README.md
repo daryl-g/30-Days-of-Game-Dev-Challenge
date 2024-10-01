@@ -5,13 +5,14 @@
 
 ## Idea
 
-- A Flappy Bird clone, but for Halloween.
-- Replace the traditional bird with a crow. _(Gotta draw the crow sprite...somehow? Maybe using Blender?)_
-- Gaps can decrease and increase size randomly, and move at a random, but reasonable speed.
+- Recreate Gravity Falls' Northwest Manor using Godot's 3D engine (but without the Northwest part).
+- Murder Mystery/Escape room-esque game? Basically, horror(-ish) puzzle game.
+- Potential names: Pembroke Mansion, Blackwood Mansion (kinda like it!), Haverhill Mansion, Thornhill Mansion
 
 ## References
 
-- https://bitbucket.org/EdwardAngeles/godot-engine-tutorial-flappy-bird/src/master/
+- [360 degree view of the Northwest Manor](https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F170ecp7ehqvb1.gif%3Fwidth%3D1283%26format%3Dmp4%26s%3D0ce219c7b4aa0e9da5e97da5f1bdea4af1a79d00)
+- [Reference images](./References)
 
 ## Progress
 
