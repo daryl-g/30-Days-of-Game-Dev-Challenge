@@ -16,7 +16,7 @@
 
 ## Progress
 
-- Day 1 []:
+- [Day 1](./devlog.md/#day-1) [x]: Getting to know Godot and how Object-Oriented Programming works in Godot and GDScript.
 - Day 2 []:
 - Day 3 []:
 - Day 4 []:
