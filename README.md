@@ -12,12 +12,13 @@
 ## References
 
 - [360 degree view of the Northwest Manor](https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F170ecp7ehqvb1.gif%3Fwidth%3D1283%26format%3Dmp4%26s%3D0ce219c7b4aa0e9da5e97da5f1bdea4af1a79d00)
+- [A Tour of Northwest Manor - Art Direction](https://www.tumblr.com/gravi-teamfalls/111307862408/a-tour-of-northwest-manor-art-direction-ian)
 - [Reference images](./References)
 
 ## Progress
 
-- [x] [Day 1](./devlog.md/#day-1): Getting to know Godot and how Object-Oriented Programming works in Godot and GDScript.
-- [] Day 2:
+- [x] [Day 1](./devlog.md/#day-1): Got to know Godot and how Object-Oriented Programming works in Godot and GDScript.
+- [x] [Day 2](./devlog.md/#day-2): Learned the basics of GDScript and played around with Terrain3D.
 - [] Day 3:
 - [] Day 4:
 - [] Day 5:
