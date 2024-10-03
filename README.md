@@ -19,7 +19,7 @@
 
 - [x] [Day 1](./devlog.md/#day-1): Got to know Godot and how Object-Oriented Programming works in Godot and GDScript.
 - [x] [Day 2](./devlog.md/#day-2): Learned the basics of GDScript and played around with Terrain3D.
-- [] Day 3:
+- [x] [Day 3](./devlog.md/#day-3): Started working on the tutorial 3D game provided by Godot using GDScript.
 - [] Day 4:
 - [] Day 5:
 - [] Day 6:

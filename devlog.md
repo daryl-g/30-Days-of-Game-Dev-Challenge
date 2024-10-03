@@ -8,6 +8,10 @@
     - [Some learning notes](#some-learning-notes)
   - [Day 2](#day-2)
     - [Some learning notes](#some-learning-notes-1)
+  - [Day 3](#day-3)
+    - [Some learning notes](#some-learning-notes-2)
+  - [Day 4](#day-4)
+    - [Some learning notes](#some-learning-notes-3)
   - [Useful for later](#useful-for-later)
 
 ## Day 1
@@ -71,8 +75,36 @@
   - `_process()`: apply changes to the node every frame
   - `_unhandled_input()`: handle user inputs
 
+## Day 3
+
+- GDScript has a literal `is_on_floor() -> bool` to check if a character is on the floor or not?! This opens up a whole new world!
+  - Function belongs to class `CharacterBody3D`, so needs `extends CharacterBody3D` to call the function.
+- Managed to get through half of the progress to create the tutorial 3D game, and it seems to be going quite well so far. Most importantly, I am enjoying it, and that is the main point of this 30-day challenge!
+
+### Some learning notes
+
+- `Vector3` is the type for a 3D vector, while `Vector2` is the type for a 2D vector.
+- Distances are in meters.
+  - In 2D, 1000 pixels = half of screen width.
+  - In 3D, 1000 pixels = 1km (kilometer).
+- **Right-handed coordination system**:
+  - X-axis: left/right (side-to-side)
+  - Y-axis: up/down
+  - Z-axis: forward/backward
+- Ground plane:
+  - In 2D, **X-Y** is the ground plane.
+  - In 3D, **X-Z** is the ground plane.
+- Node that detects when objects leave the screen: [`VisibleOnScreenNotifier3D`](https://docs.godotengine.org/en/stable/classes/class_visibleonscreennotifier3d.html#class-visibleonscreennotifier3d)
+
+## Day 4
+
+- Start here: [Current tutorial progress](https://docs.godotengine.org/en/stable/getting_started/first_3d_game/06.jump_and_squash.html)
+
+### Some learning notes
+
 ## Useful for later
 
+- [Terrain3D Docs](https://terrain3d.readthedocs.io/en/stable/docs/texture_painting.html)
 - [Godot's Introduction to 3D](https://docs.godotengine.org/en/stable/tutorials/3d/introduction_to_3d.html#doc-introduction-to-3d)
 - [Developer Tips for Uploading Godot Games to Itch.io](https://www.reddit.com/r/godot/comments/s8zwq5/psa_developer_tips_for_uploading_godot_games_to/)
 - [Exporting for the Web](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html)
