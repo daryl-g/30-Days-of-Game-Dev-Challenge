@@ -10,7 +10,7 @@
     - [Some learning notes](#some-learning-notes-1)
   - [Day 3](#day-3)
     - [Some learning notes](#some-learning-notes-2)
-  - [Day 4](#day-4)
+  - [Day 4 + 5](#day-4--5)
     - [Some learning notes](#some-learning-notes-3)
   - [Useful for later](#useful-for-later)
 
@@ -96,11 +96,19 @@
   - In 3D, **X-Z** is the ground plane.
 - Node that detects when objects leave the screen: [`VisibleOnScreenNotifier3D`](https://docs.godotengine.org/en/stable/classes/class_visibleonscreennotifier3d.html#class-visibleonscreennotifier3d)
 
-## Day 4
+## Day 4 + 5
 
-- Start here: [Current tutorial progress](https://docs.godotengine.org/en/stable/getting_started/first_3d_game/06.jump_and_squash.html)
+- Nothing to note so far, but I kinda like the fact that you can work on the UI, add music, and work on the animations within a single project.
+- Though I do know that you can do that with Unity and Unreal Engine too.
+- Squash the Creeps demo/tutorial is finally completed! The full code for it should be on the branch with the same name.
 
 ### Some learning notes
+
+- `Collision -> Mask` property allows a `Node` to listen to interaction with other physics objects.
+- Connect functions/Nodes to other Nodes using `$Node` in GDScript.
+- To do animation, use the `AnimationPlayer` node.
+- To create keyframes for the animation of the `Node3D` node, use the key symbol in the Inspector menu, at the far right of the `position` and `rotation` sections.
+- In animation, it is recommended not to time and space everything evenly. Instead, offset and contrast the character's motion to make them feel alive.
 
 ## Useful for later
 

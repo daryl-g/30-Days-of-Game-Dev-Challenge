@@ -6,7 +6,7 @@
 ## Idea
 
 - Recreate Gravity Falls' Northwest Manor using Godot's 3D engine (but without the Northwest part).
-- Murder Mystery/Escape room-esque game? Basically, horror(-ish) puzzle game.
+- Murder Mystery/Escape room-esque game? Basically, horror(-ish) puzzle game for Halloween.
 - Potential names: Pembroke Mansion, Blackwood Mansion (kinda like it!), Haverhill Mansion, Thornhill Mansion
 
 ## References
@@ -20,7 +20,7 @@
 - [x] [Day 1](./devlog.md/#day-1): Got to know Godot and how Object-Oriented Programming works in Godot and GDScript.
 - [x] [Day 2](./devlog.md/#day-2): Learned the basics of GDScript and played around with Terrain3D.
 - [x] [Day 3](./devlog.md/#day-3): Started working on the tutorial 3D game provided by Godot using GDScript.
-- [] Day 4:
+- [] [Day 4](./devlog.md/#day-4--5):
 - [] Day 5:
 - [] Day 6:
 - [] Day 7:
