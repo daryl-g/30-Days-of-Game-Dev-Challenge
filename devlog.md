@@ -12,6 +12,8 @@
     - [Some learning notes](#some-learning-notes-2)
   - [Day 4 + 5](#day-4--5)
     - [Some learning notes](#some-learning-notes-3)
+  - [Day 6](#day-6)
+  - [Day 7](#day-7)
   - [Useful for later](#useful-for-later)
 
 ## Day 1
@@ -110,10 +112,31 @@
 - To create keyframes for the animation of the `Node3D` node, use the key symbol in the Inspector menu, at the far right of the `position` and `rotation` sections.
 - In animation, it is recommended not to time and space everything evenly. Instead, offset and contrast the character's motion to make them feel alive.
 
+**From [Godot's Introduction to 3D](https://docs.godotengine.org/en/stable/tutorials/3d/introduction_to_3d.html#doc-introduction-to-3d)**:
+
+- Godot uses the metric system for everything 3D: **1 unit = 1 meter**.
+- Axis - color: X-Y-Z = Red-Green-Blue
+- Useful keybindings:
+  - To snap placement or rotation, press `Ctrl` while moving, scaling, or rotating.
+  - To center the view on the selected object, press `F`.
+- Create custom geometry by using the [ArrayMesh](https://docs.godotengine.org/en/stable/classes/class_arraymesh.html#class-arraymesh) resource directly.
+  - `ArrayMesh` tends to be used to create geometry that **does not update often**.
+- For simple geometry that needs to be updated often, use [ImmediateMesh](https://docs.godotengine.org/en/stable/classes/class_immediatemesh.html#class-immediatemesh) in a `MeshInstance3D` node.
+- To edit the environment, use the [WorldEnvironment](https://docs.godotengine.org/en/stable/classes/class_worldenvironment.html#class-worldenvironment) node.
+
+## Day 6
+
+- Watched a Cuphead playthrough for inspiration!
+
+## Day 7
+
+- [Using 3D transforms](https://docs.godotengine.org/en/stable/tutorials/3d/using_transforms.html)
+-
+
 ## Useful for later
 
+- [Thor's develop games website](www.develop.games)
 - [Terrain3D Docs](https://terrain3d.readthedocs.io/en/stable/docs/texture_painting.html)
-- [Godot's Introduction to 3D](https://docs.godotengine.org/en/stable/tutorials/3d/introduction_to_3d.html#doc-introduction-to-3d)
 - [Developer Tips for Uploading Godot Games to Itch.io](https://www.reddit.com/r/godot/comments/s8zwq5/psa_developer_tips_for_uploading_godot_games_to/)
 - [Exporting for the Web](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html)
 - [Uploading HTML5 games](https://itch.io/docs/creators/html5)

@@ -20,9 +20,8 @@
 - [x] [Day 1](./devlog.md/#day-1): Got to know Godot and how Object-Oriented Programming works in Godot and GDScript.
 - [x] [Day 2](./devlog.md/#day-2): Learned the basics of GDScript and played around with Terrain3D.
 - [x] [Day 3](./devlog.md/#day-3): Started working on the tutorial 3D game provided by Godot using GDScript.
-- [] [Day 4](./devlog.md/#day-4--5):
-- [] Day 5:
-- [] Day 6:
+- [x] [Day 4 + 5](./devlog.md/#day-4--5): Finished the Squash the Creep 3D prototype + read about 3D on Godot Engine.
+- [x] Day 6: Watched a Cuphead playthrough for inspiration!
 - [] Day 7:
 - [] Day 8:
 - [] Day 9:
