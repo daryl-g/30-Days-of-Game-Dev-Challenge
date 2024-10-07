@@ -14,6 +14,7 @@
     - [Some learning notes](#some-learning-notes-3)
   - [Day 6](#day-6)
   - [Day 7](#day-7)
+    - [Some learning notes](#some-learning-notes-4)
   - [Useful for later](#useful-for-later)
 
 ## Day 1
@@ -130,8 +131,18 @@
 
 ## Day 7
 
-- [Using 3D transforms](https://docs.godotengine.org/en/stable/tutorials/3d/using_transforms.html)
--
+![Progress after day 7](./Progress%20screenshots/Day7.png "A game engine depicting a terrain with simulated rains and clouds")
+
+- ^ This is the progress after day 7! Going from knowing nothing about Godot to successfully importing the terrain, adding rain and cloud to the world environment is not too bad.
+- Still a long way to go though!
+
+### Some learning notes
+
+- Angles in 3D are called "Euler angles".
+- There is no _unique_ way (no formula) to construct an orientation from the 3D angles.
+  - The only way an orientation can be produced is to rotate an object angle by angle, in an _arbitrary order_.
+- Applying rotation is not enough, a _rotation order_ is necessary.
+- Should not use the `rotation` property of `Node3D` nodes in Godot.
 
 ## Useful for later
 

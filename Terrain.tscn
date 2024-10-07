@@ -1,35 +1,157 @@
-[gd_scene load_steps=9 format=3 uid="uid://tmi3cajtfwjw"]
+[gd_scene load_steps=24 format=3 uid="uid://tmi3cajtfwjw"]
 
-[ext_resource type="Terrain3DStorage" uid="uid://cy8it837q5sct" path="res://new_terrain_3d_storage.res" id="1_0e8tw"]
-[ext_resource type="Texture2D" uid="uid://c4sctvk7r8f05" path="res://textures/forest_ground_ao_height.png" id="2_15j0w"]
-[ext_resource type="Texture2D" uid="uid://bins2e0pubsbb" path="res://textures/forest_ground_norm_rough.png" id="3_nqq2m"]
+[ext_resource type="Shader" path="res://sky/clouds.gdshader" id="1_i16vq"]
+[ext_resource type="CompressedTexture3D" uid="uid://nk6nx2rjwy0y" path="res://sky/perlworlnoise.tga" id="2_2dcpv"]
+[ext_resource type="Texture2D" uid="uid://b88ugqi8me7ww" path="res://sky/weather.bmp" id="3_hnig8"]
+[ext_resource type="CompressedTexture3D" uid="uid://bcsq8o3gimoon" path="res://sky/worlnoise.bmp" id="4_vqgwd"]
+[ext_resource type="Texture2D" uid="uid://dwag4e7y60u6o" path="res://textures/Circle.png" id="5_b15hh"]
+[ext_resource type="Terrain3DStorage" uid="uid://cy8it837q5sct" path="res://new_terrain_3d_storage.res" id="5_pjcjf"]
+[ext_resource type="Texture2D" uid="uid://c4sctvk7r8f05" path="res://textures/forest_ground_ao_height.png" id="6_caqib"]
+[ext_resource type="Texture2D" uid="uid://bins2e0pubsbb" path="res://textures/forest_ground_norm_rough.png" id="7_sa2hv"]
 
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_usw2a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pflfc"]
+shader = ExtResource("1_i16vq")
+shader_parameter/wind_direction = Vector2(1, 0)
+shader_parameter/wind_speed = 1.0
+shader_parameter/_density = 0.08
+shader_parameter/cloud_coverage = 0.4
+shader_parameter/_time_offset = 0.0
+shader_parameter/rayleigh = 0.5
+shader_parameter/rayleigh_color = Color(0.997225, 0.936623, 0.876202, 1)
+shader_parameter/mie = 0.005
+shader_parameter/mie_eccentricity = 0.8
+shader_parameter/mie_color = Color(0.786356, 0.867539, 0.988203, 1)
+shader_parameter/turbidity = 10.0
+shader_parameter/sun_disk_scale = 1.0
+shader_parameter/ground_color = Color(0.525101, 0.525101, 0.525101, 1)
+shader_parameter/exposure = 0.1
+shader_parameter/worlnoise = ExtResource("4_vqgwd")
+shader_parameter/perlworlnoise = ExtResource("2_2dcpv")
+shader_parameter/weathermap = ExtResource("3_hnig8")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muhpo"]
+[sub_resource type="Sky" id="Sky_dksyq"]
+sky_material = SubResource("ShaderMaterial_pflfc")
+
+[sub_resource type="Environment" id="Environment_ndmd3"]
+background_mode = 2
+background_color = Color(0, 0, 0.823529, 1)
+sky = SubResource("Sky_dksyq")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+volumetric_fog_emission = Color(0.122252, 0.122252, 0.122252, 1)
+volumetric_fog_emission_energy = 4.0
+volumetric_fog_length = 30.0
+
+[sub_resource type="Gradient" id="Gradient_myf3c"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5e70r"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u1d31"]
+seamless = true
+color_ramp = SubResource("Gradient_myf3c")
+noise = SubResource("FastNoiseLite_5e70r")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_85vfi"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_u1d31"),
+"vertex_normals_distance": 128.0
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kswa"]
 cull_mode = 2
 vertex_color_use_as_albedo = true
 backlight_enabled = true
 backlight = Color(0.5, 0.5, 0.5, 1)
 
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_wtdgm"]
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_47opr"]
 height_offset = 0.5
 density = 10.0
-material_override = SubResource("StandardMaterial3D_muhpo")
+material_override = SubResource("StandardMaterial3D_4kswa")
 generated_type = 1
 
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_wm8ra"]
-name = "forest_ground"
-albedo_texture = ExtResource("2_15j0w")
-normal_texture = ExtResource("3_nqq2m")
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_0yy6p"]
+name = "forest_ground_ao_height"
+albedo_texture = ExtResource("6_caqib")
+normal_texture = ExtResource("7_sa2hv")
 
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_yy1ao"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_wtdgm")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_wm8ra")])
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_hjs0b"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_47opr")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_0yy6p")])
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e6yej"]
+emission_shape = 3
+emission_box_extents = Vector3(50, 0.5, 50)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+color = Color(0.8, 0.8, 0.8, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_3aesv"]
+max_value = 0.1
+_data = [Vector2(0.00612245, 0.00247525), 0.0, 0.0, 0, 0, Vector2(0.0244898, 0.0451748), 0.398623, 0.398623, 0, 0, Vector2(0.995918, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flpv7"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_b15hh")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_drdg5"]
+material = SubResource("StandardMaterial3D_flpv7")
+curve = SubResource("Curve_3aesv")
 
 [node name="Node3D" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ndmd3")
+
 [node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("1_0e8tw")
-material = SubResource("Terrain3DMaterial_usw2a")
-assets = SubResource("Terrain3DAssets_yy1ao")
+storage = ExtResource("5_pjcjf")
+material = SubResource("Terrain3DMaterial_85vfi")
+assets = SubResource("Terrain3DAssets_hjs0b")
+
+[node name="Rain" type="GPUParticles3D" parent="Terrain3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.70995, 0)
+amount = 500
+lifetime = 2.0
+randomness = 0.44
+visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_e6yej")
+draw_pass_1 = SubResource("RibbonTrailMesh_drdg5")
+
+[node name="CollisionObject" type="GPUParticlesCollisionBox3D" parent="Terrain3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05542, 0)
+size = Vector3(10, 2, 10)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994737, 0.102463, 0, -0.102463, 0.994737, 0, 3.65005, 0)

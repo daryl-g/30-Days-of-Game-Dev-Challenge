@@ -22,7 +22,7 @@
 - [x] [Day 3](./devlog.md/#day-3): Started working on the tutorial 3D game provided by Godot using GDScript.
 - [x] [Day 4 + 5](./devlog.md/#day-4--5): Finished the Squash the Creep 3D prototype + read about 3D on Godot Engine.
 - [x] Day 6: Watched a Cuphead playthrough for inspiration!
-- [] Day 7:
+- [x] [Day 7](./devlog.md/#day-7): Played around with Godot's WorldEnvironment node and added elements to the node.
 - [] Day 8:
 - [] Day 9:
 - [] Day 10:
