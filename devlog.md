@@ -15,6 +15,10 @@
   - [Day 6](#day-6)
   - [Day 7](#day-7)
     - [Some learning notes](#some-learning-notes-4)
+  - [Day 8](#day-8)
+    - [Some learning notes](#some-learning-notes-5)
+  - [Day 9](#day-9)
+    - [Some learning notes](#some-learning-notes-6)
   - [Useful for later](#useful-for-later)
 
 ## Day 1
@@ -120,10 +124,10 @@
 - Useful keybindings:
   - To snap placement or rotation, press `Ctrl` while moving, scaling, or rotating.
   - To center the view on the selected object, press `F`.
-- Create custom geometry by using the [ArrayMesh](https://docs.godotengine.org/en/stable/classes/class_arraymesh.html#class-arraymesh) resource directly.
+- Create custom geometry by using the [`ArrayMesh`](https://docs.godotengine.org/en/stable/classes/class_arraymesh.html#class-arraymesh) resource directly.
   - `ArrayMesh` tends to be used to create geometry that **does not update often**.
-- For simple geometry that needs to be updated often, use [ImmediateMesh](https://docs.godotengine.org/en/stable/classes/class_immediatemesh.html#class-immediatemesh) in a `MeshInstance3D` node.
-- To edit the environment, use the [WorldEnvironment](https://docs.godotengine.org/en/stable/classes/class_worldenvironment.html#class-worldenvironment) node.
+- For simple geometry that needs to be updated often, use [`ImmediateMesh`](https://docs.godotengine.org/en/stable/classes/class_immediatemesh.html#class-immediatemesh) in a `MeshInstance3D` node.
+- To edit the environment, use the [`WorldEnvironment`](https://docs.godotengine.org/en/stable/classes/class_worldenvironment.html#class-worldenvironment) node.
 
 ## Day 6
 
@@ -143,6 +147,35 @@
   - The only way an orientation can be produced is to rotate an object angle by angle, in an _arbitrary order_.
 - Applying rotation is not enough, a _rotation order_ is necessary.
 - Should not use the `rotation` property of `Node3D` nodes in Godot.
+
+## Day 8
+
+### Some learning notes
+
+- Godot uses the [`Transform3D`](https://docs.godotengine.org/en/stable/classes/class_transform3d.html#class-transform3d) datatype for orientations.
+  - Each `Node3D` contains a `transform` property.
+  - A transform has a [`Basis`](https://docs.godotengine.org/en/stable/classes/class_basis.html#class-basis), which contains of 3 `Vector3` vectors.
+    - Can be accessed via `transform.basis` or directly by `transform.basis.x`, `transform.basis.y`, `transform.basis.z`.
+  - A transform also has an _origin_.
+    - A `Vector3` specifying how far away from the actual origin `(0, 0, 0)` the transform is.
+- Rotate a transform by **multiplying its basis by another**, or by \*\*using the `rotate()` function.
+- Precision errors:
+  - Floating-point error can result in a loss of precision after doing successive transformations.
+  - Solution: _orthonormalise_ the transform via `transform.orthonormalized()` function.
+    - Means create a set of vectors that are all perpendicular to each other.
+    - However, any scale applied to the transform will be lost.
+    - It is recommended not to scale nodes that are going to be manipulated, instead scale their children notes instead.
+- Can be interpolated with **quaternions**.
+  - More info on [`Quaternion`](https://docs.godotengine.org/en/stable/classes/class_quaternion.html#class-quaternion) type.
+  - Needs to be normalised once in a while since it can also suffer from numerical precision errors.
+
+## Day 9
+
+- Continue [here](https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html)!
+
+### Some learning notes
+
+-
 
 ## Useful for later
 
