@@ -1,16 +1,16 @@
 [gd_scene load_steps=24 format=3 uid="uid://tmi3cajtfwjw"]
 
-[ext_resource type="Shader" path="res://sky/clouds.gdshader" id="1_i16vq"]
-[ext_resource type="CompressedTexture3D" uid="uid://nk6nx2rjwy0y" path="res://sky/perlworlnoise.tga" id="2_2dcpv"]
-[ext_resource type="Texture2D" uid="uid://b88ugqi8me7ww" path="res://sky/weather.bmp" id="3_hnig8"]
-[ext_resource type="CompressedTexture3D" uid="uid://bcsq8o3gimoon" path="res://sky/worlnoise.bmp" id="4_vqgwd"]
+[ext_resource type="Shader" path="res://worldenv/sky/clouds.gdshader" id="1_q0bpk"]
+[ext_resource type="CompressedTexture3D" uid="uid://nk6nx2rjwy0y" path="res://worldenv/sky/perlworlnoise.tga" id="2_2dcpv"]
+[ext_resource type="Texture2D" uid="uid://b88ugqi8me7ww" path="res://worldenv/sky/weather.bmp" id="3_hnig8"]
+[ext_resource type="CompressedTexture3D" uid="uid://bcsq8o3gimoon" path="res://worldenv/sky/worlnoise.bmp" id="4_vqgwd"]
 [ext_resource type="Texture2D" uid="uid://dwag4e7y60u6o" path="res://textures/Circle.png" id="5_b15hh"]
 [ext_resource type="Terrain3DStorage" uid="uid://cy8it837q5sct" path="res://new_terrain_3d_storage.res" id="5_pjcjf"]
 [ext_resource type="Texture2D" uid="uid://c4sctvk7r8f05" path="res://textures/forest_ground_ao_height.png" id="6_caqib"]
 [ext_resource type="Texture2D" uid="uid://bins2e0pubsbb" path="res://textures/forest_ground_norm_rough.png" id="7_sa2hv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pflfc"]
-shader = ExtResource("1_i16vq")
+shader = ExtResource("1_q0bpk")
 shader_parameter/wind_direction = Vector2(1, 0)
 shader_parameter/wind_speed = 1.0
 shader_parameter/_density = 0.08
@@ -41,6 +41,35 @@ volumetric_fog_density = 0.025
 volumetric_fog_emission = Color(0.122252, 0.122252, 0.122252, 1)
 volumetric_fog_emission_energy = 4.0
 volumetric_fog_length = 30.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e6yej"]
+emission_shape = 3
+emission_box_extents = Vector3(50, 0.5, 50)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+color = Color(0.8, 0.8, 0.8, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_3aesv"]
+max_value = 0.1
+_data = [Vector2(0.00612245, 0.00247525), 0.0, 0.0, 0, 0, Vector2(0.0244898, 0.0451748), 0.398623, 0.398623, 0, 0, Vector2(0.995918, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flpv7"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_b15hh")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_drdg5"]
+material = SubResource("StandardMaterial3D_flpv7")
+curve = SubResource("Curve_3aesv")
 
 [sub_resource type="Gradient" id="Gradient_myf3c"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -99,46 +128,12 @@ normal_texture = ExtResource("7_sa2hv")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_47opr")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_0yy6p")])
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e6yej"]
-emission_shape = 3
-emission_box_extents = Vector3(50, 0.5, 50)
-direction = Vector3(0, -1, 0)
-spread = 5.0
-initial_velocity_min = 15.0
-initial_velocity_max = 15.0
-color = Color(0.8, 0.8, 0.8, 1)
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
-
-[sub_resource type="Curve" id="Curve_3aesv"]
-max_value = 0.1
-_data = [Vector2(0.00612245, 0.00247525), 0.0, 0.0, 0, 0, Vector2(0.0244898, 0.0451748), 0.398623, 0.398623, 0, 0, Vector2(0.995918, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flpv7"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_b15hh")
-use_particle_trails = true
-
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_drdg5"]
-material = SubResource("StandardMaterial3D_flpv7")
-curve = SubResource("Curve_3aesv")
-
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ndmd3")
 
-[node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("5_pjcjf")
-material = SubResource("Terrain3DMaterial_85vfi")
-assets = SubResource("Terrain3DAssets_hjs0b")
-
-[node name="Rain" type="GPUParticles3D" parent="Terrain3D"]
+[node name="Rain" type="GPUParticles3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.70995, 0)
 amount = 500
 lifetime = 2.0
@@ -149,9 +144,14 @@ trail_lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_e6yej")
 draw_pass_1 = SubResource("RibbonTrailMesh_drdg5")
 
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("5_pjcjf")
+material = SubResource("Terrain3DMaterial_85vfi")
+assets = SubResource("Terrain3DAssets_hjs0b")
+
 [node name="CollisionObject" type="GPUParticlesCollisionBox3D" parent="Terrain3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05542, 0)
 size = Vector3(10, 2, 10)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.994737, 0.102463, 0, -0.102463, 0.994737, 0, 3.65005, 0)
+transform = Transform3D(0.491254, -0.089247, 0.866432, 4.44089e-16, 0.994737, 0.102463, -0.871017, -0.0503353, 0.488668, 0, 3.65005, 0)

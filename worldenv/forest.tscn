@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3vnhsmrsqis3"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://cy8it837q5sct" path="res://new_terrain_3d_storage.res" id="1_s358q"]
+[ext_resource type="Texture2D" uid="uid://c4sctvk7r8f05" path="res://textures/forest_ground_ao_height.png" id="2_r0v7x"]
+[ext_resource type="Texture2D" uid="uid://bins2e0pubsbb" path="res://textures/forest_ground_norm_rough.png" id="3_wwinl"]
+
+[sub_resource type="Gradient" id="Gradient_myf3c"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5e70r"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u1d31"]
+seamless = true
+color_ramp = SubResource("Gradient_myf3c")
+noise = SubResource("FastNoiseLite_5e70r")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_1t8yb"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_u1d31"),
+"vertex_normals_distance": 128.0
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kswa"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_47opr"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_4kswa")
+generated_type = 1
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_0yy6p"]
+name = "forest_ground_ao_height"
+albedo_texture = ExtResource("2_r0v7x")
+normal_texture = ExtResource("3_wwinl")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_u3bjq"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_47opr")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_0yy6p")])
+
+[node name="Forest" type="Node"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_s358q")
+material = SubResource("Terrain3DMaterial_1t8yb")
+assets = SubResource("Terrain3DAssets_u3bjq")
