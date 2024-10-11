@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3vnhsmrsqis3"]
+[gd_scene load_steps=14 format=3 uid="uid://b3vnhsmrsqis3"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://cy8it837q5sct" path="res://new_terrain_3d_storage.res" id="1_s358q"]
 [ext_resource type="Texture2D" uid="uid://c4sctvk7r8f05" path="res://textures/forest_ground_ao_height.png" id="2_r0v7x"]
 [ext_resource type="Texture2D" uid="uid://bins2e0pubsbb" path="res://textures/forest_ground_norm_rough.png" id="3_wwinl"]
+[ext_resource type="MeshLibrary" uid="uid://c8mdc01qhoi48" path="res://worldenv/trees/tree_mesh.tres" id="4_pnwtl"]
+[ext_resource type="MeshLibrary" uid="uid://fiw3723apn22" path="res://worldenv/trees/foliage_mesh.tres" id="5_xl64b"]
 
 [sub_resource type="Gradient" id="Gradient_myf3c"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -67,3 +69,21 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 storage = ExtResource("1_s358q")
 material = SubResource("Terrain3DMaterial_1t8yb")
 assets = SubResource("Terrain3DAssets_u3bjq")
+
+[node name="Trees" type="GridMap" parent="."]
+mesh_library = ExtResource("4_pnwtl")
+cell_size = Vector3(1, 2, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65529, 65535, 0, 65533, 65524, 0, 11, 65526, 0, 14, 3, 0, 3, 10, 0, 65534, 65506, 0, 65529, 65507, 0, 65525, 65509, 0, 65521, 65512, 0, 65518, 65515, 0, 65515, 65519, 0, 65512, 65523, 0, 65511, 65528, 0, 65511, 65533, 0, 65511, 2, 0, 65511, 7, 0, 65513, 12, 0, 65517, 16, 0, 65521, 20, 0, 65524, 23, 0, 65527, 26, 0, 65532, 28, 0, 1, 28, 0, 6, 28, 0, 11, 26, 0, 15, 24, 0, 19, 21, 0, 22, 18, 0, 24, 14, 0, 25, 9, 0, 25, 4, 0, 25, 65535, 0, 23, 65530, 0, 20, 65525, 0, 17, 65521, 0, 14, 65517, 0, 11, 65513, 0, 7, 65510, 0, 3, 65507, 0, 25, 65526, 0, 20, 65516, 0, 11, 65508, 0, 1, 65502, 0, 65521, 65506, 0, 65510, 65518, 0, 65507, 10, 0, 65506, 0, 0, 65512, 17, 0, 65516, 21, 0, 65528, 31, 0, 10, 31, 0, 19, 26, 0, 28, 13, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Foliage" type="GridMap" parent="."]
+mesh_library = ExtResource("5_xl64b")
+cell_size = Vector3(0.5, 2, 0.5)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65522, 65525, 0, 65507, 65525, 0, 23, 20, 0, 27, 16, 0, 65514, 11, 0, 65508, 65523, 0, 65512, 65513, 0, 65528, 65505, 0, 15, 65505, 0, 65516, 65526, 0, 65518, 65526, 0, 65522, 65526, 0, 65527, 65525, 0, 65532, 65525, 0, 5, 65526, 0, 8, 65526, 0, 13, 65527, 0, 17, 65527, 0, 7, 65515, 0, 35, 65533, 0, 65511, 15, 0, 65502, 25, 0, 36, 30, 0, 65522, 65502, 0, 14, 65502, 0, 65534, 65501, 0, 40, 65529, 0, 65501, 65530, 0, 65515, 65501, 0, 3, 65500, 0, 17, 65511, 0, 23, 32, 0, 65514, 65521, 0, 39, 1, 0, 65507, 20, 0, 65528, 46, 0, 65500, 65525, 0, 4, 65534, 0, 65527, 65534, 0, 65520, 9, 0, 12, 15, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

@@ -23,10 +23,8 @@
 - [x] [Day 4 + 5](./devlog.md/#day-4--5): Finished the Squash the Creep 3D prototype + read about 3D on Godot Engine.
 - [x] Day 6: Watched a Cuphead playthrough for inspiration!
 - [x] [Day 7](./devlog.md/#day-7): Played around with Godot's WorldEnvironment node and added elements to the node.
-- [] Day 8:
-- [] Day 9:
-- [] Day 10:
-- [] Day 11:
+- [x] [Day 8](./devlog.md/#day-8): Started reading through Godot's Introduction to 3D.
+- [x] [Day 9 + 10 + 11](./devlog.md/#day-9--10--11): Used Blender to create 3D assets for the environment.
 - [] Day 12:
 - [] Day 13:
 - [] Day 14:

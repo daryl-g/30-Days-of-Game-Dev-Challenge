@@ -17,8 +17,9 @@
     - [Some learning notes](#some-learning-notes-4)
   - [Day 8](#day-8)
     - [Some learning notes](#some-learning-notes-5)
-  - [Day 9](#day-9)
+  - [Day 9 + 10 + 11](#day-9--10--11)
     - [Some learning notes](#some-learning-notes-6)
+  - [Day 12](#day-12)
   - [Useful for later](#useful-for-later)
 
 ## Day 1
@@ -169,13 +170,24 @@
   - More info on [`Quaternion`](https://docs.godotengine.org/en/stable/classes/class_quaternion.html#class-quaternion) type.
   - Needs to be normalised once in a while since it can also suffer from numerical precision errors.
 
-## Day 9
+## Day 9 + 10 + 11
 
-- Continue [here](https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html)!
+- Too much procrastination + tiredness lead to me combining the progress of three days into one.
+- But that means...it's Blender time to make more progress!
+- Never knew how much effort goes into making a 3D model. Here I am making a 3D model of a Tree and it already took me an hour!
 
 ### Some learning notes
 
--
+- Hold `Shift` in Blender allows you to fine tune things easier.
+- Press `S + (axis)` in Blender to scale things.
+- Press `R + (axis)` in Blender to rotate things.
+- Press `G + (axis)` in Blender to move things.
+- The `Shading` tab in Blender is useful to add textures and stuff to models/meshes.
+- The `UV Editing` tab in Blender is useful for mapping the texture to the model/mesh.
+
+## Day 12
+
+- Continue [here](https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html)!
 
 ## Useful for later
 

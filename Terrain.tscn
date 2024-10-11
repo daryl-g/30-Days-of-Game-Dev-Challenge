@@ -1,13 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://tmi3cajtfwjw"]
+[gd_scene load_steps=14 format=3 uid="uid://tmi3cajtfwjw"]
 
 [ext_resource type="Shader" path="res://worldenv/sky/clouds.gdshader" id="1_q0bpk"]
 [ext_resource type="CompressedTexture3D" uid="uid://nk6nx2rjwy0y" path="res://worldenv/sky/perlworlnoise.tga" id="2_2dcpv"]
 [ext_resource type="Texture2D" uid="uid://b88ugqi8me7ww" path="res://worldenv/sky/weather.bmp" id="3_hnig8"]
 [ext_resource type="CompressedTexture3D" uid="uid://bcsq8o3gimoon" path="res://worldenv/sky/worlnoise.bmp" id="4_vqgwd"]
 [ext_resource type="Texture2D" uid="uid://dwag4e7y60u6o" path="res://textures/Circle.png" id="5_b15hh"]
-[ext_resource type="Terrain3DStorage" uid="uid://cy8it837q5sct" path="res://new_terrain_3d_storage.res" id="5_pjcjf"]
-[ext_resource type="Texture2D" uid="uid://c4sctvk7r8f05" path="res://textures/forest_ground_ao_height.png" id="6_caqib"]
-[ext_resource type="Texture2D" uid="uid://bins2e0pubsbb" path="res://textures/forest_ground_norm_rough.png" id="7_sa2hv"]
+[ext_resource type="PackedScene" uid="uid://b3vnhsmrsqis3" path="res://worldenv/forest.tscn" id="6_vpabp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pflfc"]
 shader = ExtResource("1_q0bpk")
@@ -71,63 +69,6 @@ use_particle_trails = true
 material = SubResource("StandardMaterial3D_flpv7")
 curve = SubResource("Curve_3aesv")
 
-[sub_resource type="Gradient" id="Gradient_myf3c"]
-offsets = PackedFloat32Array(0.2, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5e70r"]
-noise_type = 2
-frequency = 0.03
-cellular_jitter = 3.0
-cellular_return_type = 0
-domain_warp_enabled = true
-domain_warp_type = 1
-domain_warp_amplitude = 50.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_lacunarity = 1.5
-domain_warp_fractal_gain = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u1d31"]
-seamless = true
-color_ramp = SubResource("Gradient_myf3c")
-noise = SubResource("FastNoiseLite_5e70r")
-
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_85vfi"]
-_shader_parameters = {
-"blend_sharpness": 0.87,
-"height_blending": true,
-"macro_variation1": Color(1, 1, 1, 1),
-"macro_variation2": Color(1, 1, 1, 1),
-"noise1_angle": 0.0,
-"noise1_offset": Vector2(0.5, 0.5),
-"noise1_scale": 0.04,
-"noise2_scale": 0.076,
-"noise3_scale": 0.225,
-"noise_texture": SubResource("NoiseTexture2D_u1d31"),
-"vertex_normals_distance": 128.0
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kswa"]
-cull_mode = 2
-vertex_color_use_as_albedo = true
-backlight_enabled = true
-backlight = Color(0.5, 0.5, 0.5, 1)
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_47opr"]
-height_offset = 0.5
-density = 10.0
-material_override = SubResource("StandardMaterial3D_4kswa")
-generated_type = 1
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_0yy6p"]
-name = "forest_ground_ao_height"
-albedo_texture = ExtResource("6_caqib")
-normal_texture = ExtResource("7_sa2hv")
-
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_hjs0b"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_47opr")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_0yy6p")])
-
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -144,14 +85,7 @@ trail_lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_e6yej")
 draw_pass_1 = SubResource("RibbonTrailMesh_drdg5")
 
-[node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("5_pjcjf")
-material = SubResource("Terrain3DMaterial_85vfi")
-assets = SubResource("Terrain3DAssets_hjs0b")
-
-[node name="CollisionObject" type="GPUParticlesCollisionBox3D" parent="Terrain3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05542, 0)
-size = Vector3(10, 2, 10)
+[node name="Forest" parent="." instance=ExtResource("6_vpabp")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.491254, -0.089247, 0.866432, 4.44089e-16, 0.994737, 0.102463, -0.871017, -0.0503353, 0.488668, 0, 3.65005, 0)
+transform = Transform3D(-0.981225, 0.0197614, -0.191849, -7.65103e-09, 0.994737, 0.102463, 0.192864, 0.100539, -0.976061, -0.79231, 5.02347, 3.19938)
