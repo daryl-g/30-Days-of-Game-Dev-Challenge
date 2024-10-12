@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqtj73c8oxpdu"]
+
+[ext_resource type="Script" path="res://player/scripts/Player.gd" id="1_231gn"]
+[ext_resource type="Script" path="res://player/scripts/CameraGimbal.gd" id="2_2hsjr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_86qa3"]
+radius = 0.7
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_231gn")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" type="Node3D" parent="Pivot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02413, 0)
+shape = SubResource("CylinderShape3D_86qa3")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+
+[node name="CameraGimbal" type="Node3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85392, 0)
+script = ExtResource("2_2hsjr")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/CameraGimbal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.194156, 0)
+fov = 65.4291

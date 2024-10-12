@@ -20,6 +20,8 @@
   - [Day 9 + 10 + 11](#day-9--10--11)
     - [Some learning notes](#some-learning-notes-6)
   - [Day 12](#day-12)
+    - [Some learning notes](#some-learning-notes-7)
+  - [Day 13](#day-13)
   - [Useful for later](#useful-for-later)
 
 ## Day 1
@@ -186,6 +188,18 @@
 - The `UV Editing` tab in Blender is useful for mapping the texture to the model/mesh.
 
 ## Day 12
+
+- Woah! Not adjusting the camera rotation right makes it look super dizzy.
+- It is also kinda hard (_but not too hard!_) to get the camera rotation right. Luckily, there is the tutorial in Godot's official [doc](https://docs.godotengine.org/en/stable/tutorials/3d/using_transforms.html#setting-information)!
+- Camera rotating in 3D is one thing, now I have to orient the player's movement to match where the camera is looking at.
+- It is really hard to do this ^, but this [guide](https://kidscancode.org/godot_recipes/4.x/3d/assets/character_controller/index.html#movement) helped me a lot. If they say "kids can code" then I should be able to do this...
+
+### Some learning notes
+
+- For camera rotation in 3D, it is probably best to use `Transform3D` instead of relying on traditional calculations.
+- `Vector3` is really important for working with 3D stuff.
+
+## Day 13
 
 - Continue [here](https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html)!
 

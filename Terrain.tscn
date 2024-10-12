@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tmi3cajtfwjw"]
+[gd_scene load_steps=15 format=3 uid="uid://tmi3cajtfwjw"]
 
 [ext_resource type="Shader" path="res://worldenv/sky/clouds.gdshader" id="1_q0bpk"]
 [ext_resource type="CompressedTexture3D" uid="uid://nk6nx2rjwy0y" path="res://worldenv/sky/perlworlnoise.tga" id="2_2dcpv"]
@@ -6,6 +6,7 @@
 [ext_resource type="CompressedTexture3D" uid="uid://bcsq8o3gimoon" path="res://worldenv/sky/worlnoise.bmp" id="4_vqgwd"]
 [ext_resource type="Texture2D" uid="uid://dwag4e7y60u6o" path="res://textures/Circle.png" id="5_b15hh"]
 [ext_resource type="PackedScene" uid="uid://b3vnhsmrsqis3" path="res://worldenv/forest.tscn" id="6_vpabp"]
+[ext_resource type="PackedScene" uid="uid://dqtj73c8oxpdu" path="res://player/player.tscn" id="7_wlily"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pflfc"]
 shader = ExtResource("1_q0bpk")
@@ -79,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.70995, 0)
 amount = 500
 lifetime = 2.0
 randomness = 0.44
-visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
+visibility_aabb = AABB(-100, -10, -100, 200, 20, 200)
 trail_enabled = true
 trail_lifetime = 0.2
 process_material = SubResource("ParticleProcessMaterial_e6yej")
@@ -87,5 +88,5 @@ draw_pass_1 = SubResource("RibbonTrailMesh_drdg5")
 
 [node name="Forest" parent="." instance=ExtResource("6_vpabp")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.981225, 0.0197614, -0.191849, -7.65103e-09, 0.994737, 0.102463, 0.192864, 0.100539, -0.976061, -0.79231, 5.02347, 3.19938)
+[node name="Player" parent="." instance=ExtResource("7_wlily")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477105, 0)
