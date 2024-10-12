@@ -25,7 +25,7 @@
 - [x] [Day 7](./devlog.md/#day-7): Played around with Godot's WorldEnvironment node and added elements to the node.
 - [x] [Day 8](./devlog.md/#day-8): Started reading through Godot's Introduction to 3D.
 - [x] [Day 9 + 10 + 11](./devlog.md/#day-9--10--11): Used Blender to create 3D assets for the environment.
-- [] Day 12:
+- [x] [Day 12](./devlog.md/#day-12): Integrated player movement and camera rotation logic to the Player character.
 - [] Day 13:
 - [] Day 14:
 - [] Day 15:
