@@ -201,10 +201,9 @@
 
 ## Day 13
 
-- Continue [here](https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html)!
-
 ## Useful for later
 
+- Continue reading [here](https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html)!
 - [Thor's develop games website](www.develop.games)
 - [Terrain3D Docs](https://terrain3d.readthedocs.io/en/stable/docs/texture_painting.html)
 - [Developer Tips for Uploading Godot Games to Itch.io](https://www.reddit.com/r/godot/comments/s8zwq5/psa_developer_tips_for_uploading_godot_games_to/)
